@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Monthly Challenges</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f4f4f9;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .month {
+      background: white;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .challenge {
+      margin: 8px 0;
+      padding: 8px;
+      border-left: 4px solid #0073e6;
+      background: #f9f9f9;
+      border-radius: 5px;
+    }
+    .status {
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .done { color: green; }
+    .not-done { color: red; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="goalspage.html">Goals</a> |
+    <a href="challenges.html">Challenges</a>
+    <a href="contactpage.html">Contact</a>
+  </nav>
+
+  <h1>🌟 My Monthly Challenges</h1>
+
+  <!-- Example Month -->
+  <div class="month">
+    <h2>August 2025</h2>
+    <div class="challenge">1. Finish at least 10 novels 
+      <span class="status done"> Completed for sure</span>
+    </div>
+    <div class="challenge">2. post 3x on linkdin weekly and on twitter daily
+      <span class="status not-done">Not Completed</span>
+    </div>
+    <div class="challenge">3. Meditate daily for 10 min 
+      <span class="status done">Completed</span>
+    </div>
+    <div class="challenge">4. complete the basics of web development
+      <span class="status not-done"> work in progress</span>
+    </div>
+    <div class="challenge">5. create one real world project
+      <span class="status done"> haven’t started yet</span>
+    </div>
+  </div>  <!-- Conclusion Section -->
+  <div class="month">
+    <h2>📌 Conclusion</h2>
+    <p id="conclusion-text">
+      Reviewing my challenges helped me see my progress clearly. Some goals are completed ✅, some are still in progress ⏳, and a few need more effort 💪. 
+    </p>
+    <p><strong>Last Updated:</strong> <span id="datetime"></span></p>
+  </div>
+
+  <script>
+    // Add current date and time automatically
+    const now = new Date();
+    document.getElementById("datetime").textContent = now.toLocaleString();
+  </script>
+
+</body>
+</html>
