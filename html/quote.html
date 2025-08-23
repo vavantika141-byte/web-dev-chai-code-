@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily Quote</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .quote-box {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+    }
+    h1 {
+      color: #0073e6;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-box">
+    <h1>🌟 Daily Quote 🌟</h1>
+    <p id="quote"></p>
+  </div>
+
+  <script>
+    const quotes = [
+      "Believe in yourself and all that you are.",
+      "Small steps every day lead to big results.",
+      "Don’t count the days, make the days count.",
+      "Discipline beats motivation.",
+      "Your future is created by what you do today."
+    ];
+    document.getElementById("quote").innerText = 
+      quotes[Math.floor(Math.random() * quotes.length)];
+  </script>
+</body>
+</html>
