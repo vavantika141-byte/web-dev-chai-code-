@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML + CSS Revision Template</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --bg: #f8fafc;
+      --fg: #5f4b08;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --muted: #6b7280;
+      --primary: #ad8c08;
+      --accent: #22c55e;
+      --radius: 16px;
+      --shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220;
+        --fg: #e5e7eb;
+        --card: #0f172a;
+        --border: #1f2937;
+        --muted: #9ca3af;
+        --shadow: 0 10px 28px rgba(0,0,0,.35);
+      }
+    }
+
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    .grid { display: grid; gap: 16px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .flex { display: flex; gap: 12px; align-items: center; }
+    .center { display: grid; place-items: center; }
+    .shadow { box-shadow: var(--shadow); }
+    .round { border-radius: var(--radius); }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(10px);
+      background: color-mix(in oklab, var(--bg), transparent 20%);
+      border-bottom: 1px solid var(--border);
+    }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; }
+    nav a { text-decoration: none; color: inherit; opacity: .8; margin-left: 16px; }
+    nav a:hover { opacity: 1; }
+
+    h1 { font-size: clamp(28px, 6vw, 48px); line-height: 1.1; margin: 0 0 10px; }
+    h2 { font-size: clamp(22px, 4vw, 32px); margin: 0 0 8px; }
+    h3 { margin: 0 0 6px; }
+    .lead { font-size: clamp(16px, 3vw, 20px); opacity: .85; margin: 0 0 22px; }
+
+    .btn { display: inline-block; padding: 12px 18px; border: 1px solid var(--border); border-radius: 999px; text-decoration: none; color: inherit; transition: transform .15s ease, box-shadow .15s ease; }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn.primary { background: var(--primary); border-color: var(--primary); color: white; }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+
+    label { display: block; font-weight: 600; margin-bottom: 6px; }
+    input, select, textarea { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); color: inherit; }
+
+    .hero { padding: 72px 0; }
+    .cta { text-align: center; padding: 60px 0; }
+    footer { padding: 40px 0; opacity: .75; font-size: 14px; }
+
+    @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } nav .right { display: none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="left"><strong>DELUSIONAL</strong></div>
+      <div class="right">
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+        <a class="btn primary" href="#cta">Get Started</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero center">
+      <div>
+        <h1>Clean HTML + CSS Revision Template</h1>
+        <p class="lead">One-file scaffold covering layout, grid/flex, cards, buttons, forms, sticky nav & responsiveness.</p>
+        <a class="btn primary" href="#features">See Features</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </section>
+
+    <section id="features" class="grid grid-3">
+      <article class="card shadow">
+        <h3>Grid Layout</h3>
+        <p>Use <code>.grid</code> + <code>.grid-3</code>; collapses to 1-column on small screens.</p>
+      </article>
+      <article class="card shadow">
+        <h3>Flex Utilities</h3>
+        <p><code>.flex</code> aligns items quickly with a small gap.</p>
+      </article>
+      <article class="card shadow">
+        <h3>Dark Mode</h3>
+        <p>Automatic via <code>prefers-color-scheme</code> media query.</p>
+      </article>
+    </section>
+
+    <section id="cta" class="cta">
+      <div class="card shadow" style="padding: 32px;">
+        <h2>Call to Action</h2>
+        <p class="lead">Buttons are pill-shaped and gently lift on hover.</p>
+        <a class="btn primary" href="#">Do the Thing</a>
+      </div>
+    </section>
+
+    <section id="contact" class="grid" style="grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 60px;">
+      <div class="card shadow">
+        <h3>Contact Form</h3>
+        <form onsubmit="return false;">
+          <label for="name">Name</label>
+          <input id="name" placeholder="Avantika verma" />
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="vavantika141@gmail.com" />
+          <label for="msg">Message</label>
+          <textarea id="msg" rows="4" placeholder="What's happening guyzzzzz?"></textarea>
+          <div class="flex" style="justify-content: flex-end; margin-top: 12px;">
+            <button class="btn primary" type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+      <div class="card shadow">
+        <h3>Notes</h3>
+        <ul>
+          <li>Sticky nav + blur background</li>
+          <li>CSS variables for theme</li>
+          <li>Cards, buttons, basic form styles</li>
+          <li>Utilities: <code>.grid</code>, <code>.flex</code>, <code>.center</code></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+               <footer class="container">
+                 <p>2025 Avantika. Just Built with HTML + CSS for Revision</p>
+               </footer>
+</body>
+</html>
